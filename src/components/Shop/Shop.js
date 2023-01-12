@@ -11,11 +11,11 @@ const Shop = () => {
     const [cart, setCart]=useState([])
 
     useEffect(() => {
-        let shoppingCart=localStorage.getItem('shopping-cart')===true?JSON.parse(localStorage.getItem('shopping-cart')):[];
-        // const storedCart = localStorage.getItem('shopping-cart');
-        // if(storedCart){
-        //     shoppingCart = JSON.parse(storedCart);
-        // }
+        let shoppingCart;
+        const storedCart = localStorage.getItem('shopping-cart');
+        if(storedCart){
+            shoppingCart = JSON.parse(storedCart);
+        }
         const productKeys=Object.keys(shoppingCart);
 
         const cartProducts=productKeys.map(productKey => {
